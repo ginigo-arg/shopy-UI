@@ -19,6 +19,9 @@ export default function Signup() {
             placeholder="Email"
             className="w-full rounded border bg-neutral-50 px-4 py-2"
           />
+          {state.error && (
+            <div className="mt-2 text-red-500">{state.error}</div>
+          )}
         </div>
         <div className="mb-4">
           <label className="sr-only" htmlFor="password">
@@ -32,6 +35,9 @@ export default function Signup() {
             autoComplete="off"
             className="w-full rounded border bg-neutral-50 px-4 py-2"
           />
+          {state.error && (
+            <div className="mt-2 text-red-500">{state.error}</div>
+          )}
         </div>
 
         <button
