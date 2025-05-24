@@ -2,6 +2,7 @@
 
 import { useFormState } from "react-dom";
 import createUser from "./create-user";
+import Link from "next/link";
 
 export default function Signup() {
   const [state, formAction] = useFormState(createUser, { error: "" });
@@ -41,13 +42,20 @@ export default function Signup() {
         </div>
 
         <button
-          className="rounded bg-neutral-800 px-4 py-2 text-neutral-200 hover:bg-neutral-700"
+          className="rounded bg-neutral-800 px-4 py-2 text-neutral-200 hover:bg-neutral-700 w-full"
           type="submit"
         >
-          Log In
+          Sign Up
         </button>
       </form>
-      <div></div>
+      <div className="mt-4 text-center">
+        <p className="text-sm text-neutral-500">
+          Already have an account?{" "}
+          <Link href="/auth/login" className="text-neutral-800 hover:underline">
+            Log In
+          </Link>
+        </p>
+      </div>
     </div>
   );
 }

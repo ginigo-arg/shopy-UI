@@ -2,6 +2,7 @@
 
 import { useFormState } from "react-dom";
 import login from "./login";
+import Link from "next/link";
 
 export default function Login() {
   const [state, formAction] = useFormState(login, { error: "" });
@@ -41,13 +42,23 @@ export default function Login() {
         </div>
 
         <button
-          className="rounded bg-neutral-800 px-4 py-2 text-neutral-200 hover:bg-neutral-700"
+          className="rounded bg-neutral-800 px-4 py-2 text-neutral-200 hover:bg-neutral-700 w-full"
           type="submit"
         >
           Log In
         </button>
       </form>
-      <div></div>
+      <div className="mt-4 text-center">
+        <p className="text-sm text-neutral-500">
+          Don't have an account?{" "}
+          <Link
+            href="/auth/signup"
+            className="text-neutral-800 hover:underline"
+          >
+            Sign Up
+          </Link>
+        </p>
+      </div>
     </div>
   );
 }
