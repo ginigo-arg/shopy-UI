@@ -12,18 +12,27 @@ export const metadata: Metadata = {
   description: "NextJs + NesJs + Prisma + Tailwind CSS + TypeScript",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isAuthenticated = authenticated();
+  const isAuthenticated = await authenticated();
   return (
     <html lang="en">
-      <Providers authenticated={isAuthenticated}>
-        <Header />
-        <body className={inter.className}>{children}</body>
-      </Providers>
+      <body
+        className={`${inter.className} grid min-h-dvh grid-rows-[auto,1fr,auto]`}
+      >
+        <Providers authenticated={isAuthenticated}>
+          <Header></Header>
+          <main className="container mx-auto my-auto">{children}</main>
+          <footer className="bg-gray-800 text-white p-4 text-center">
+            <p className="text-sm">
+              &copy; Shopy Next App. All rights reserved.
+            </p>
+          </footer>
+        </Providers>
+      </body>
     </html>
   );
 }

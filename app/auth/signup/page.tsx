@@ -8,7 +8,7 @@ export default function Signup() {
   const [state, formAction] = useFormState(createUser, { error: "" });
 
   return (
-    <div className="mx-auto mt-16 w-full max-w-lg">
+    <div className="mx-auto w-full max-w-lg h-full my-auto">
       <form className="rounded border p-8 shadow-md" action={formAction}>
         <div className="mb-2">
           <label className="sr-only" htmlFor="email">

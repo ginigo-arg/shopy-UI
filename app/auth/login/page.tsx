@@ -8,8 +8,11 @@ export default function Login() {
   const [state, formAction] = useFormState(login, { error: "" });
 
   return (
-    <div className="mx-auto mt-16 w-full max-w-lg">
-      <form className="rounded border p-8 shadow-md" action={formAction}>
+    <div className="w-full max-w-lg mx-auto">
+      <form
+        className="rounded border p-8 shadow-md my-auto"
+        action={formAction}
+      >
         <div className="mb-2">
           <label className="sr-only" htmlFor="email">
             Email
@@ -50,7 +53,7 @@ export default function Login() {
       </form>
       <div className="mt-4 text-center">
         <p className="text-sm text-neutral-500">
-          Don't have an account?{" "}
+          Do not have an account?{" "}
           <Link
             href="/auth/signup"
             className="text-neutral-800 hover:underline"
