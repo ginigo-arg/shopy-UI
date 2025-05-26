@@ -1,13 +1,8 @@
 "use client";
-import {
-  Description,
-  Dialog,
-  DialogPanel,
-  DialogTitle,
-} from "@headlessui/react";
+import { Dialog, DialogPanel } from "@headlessui/react";
 import { useState } from "react";
-import { FormResponse } from "../common/form-response.interface";
-import createProduct from "./create-product";
+import { FormResponse } from "../../common/form-response.interface";
+import createProduct from "../actions/create-product";
 
 interface CreateProductModalProps {
   open: boolean;

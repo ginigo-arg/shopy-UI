@@ -1,11 +1,12 @@
-import CreateProductFab from "./products/create-product-fab";
+import { get } from "http";
+import CreateProductFab from "./products/create-product/create-product-fab";
+import { getProducts } from "./products/actions/get-products";
+import Products from "./products/products";
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
-      <h1>Welcome to the Home Page</h1>
-      <p>This is the main entry point of the application.</p>
-      <p>Feel free to explore the features and functionalities.</p>
+      <Products />
       <CreateProductFab />
     </>
   );

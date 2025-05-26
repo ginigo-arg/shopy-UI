@@ -25,7 +25,7 @@ export default async function RootLayout({
       >
         <Providers authenticated={isAuthenticated}>
           <Header></Header>
-          <main className="container mx-auto my-auto">{children}</main>
+          <main className="container mx-auto px-5 md:px-0">{children}</main>
           <footer className="bg-gray-800 text-white p-4 text-center">
             <p className="text-sm">
               &copy; Shopy Next App. All rights reserved.
