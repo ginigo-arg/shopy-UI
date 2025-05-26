@@ -31,7 +31,7 @@ export default function CreateProductModal({
     whiteSpace: "nowrap",
     width: 1,
   };
-  console.log("fileName:: ", fileName);
+
   return (
     <Dialog open={open} onClose={onClose} className="relative z-50">
       <div className="fixed inset-0 flex w-screen items-center justify-center">
@@ -97,7 +97,7 @@ export default function CreateProductModal({
                     name="image"
                     type="file"
                     style={fileInputStyles}
-                    // tabIndex={-1}
+                    tabIndex={-1}
                     onChange={(e) =>
                       e.target.files && setFileName(e.target.files[0].name)
                     }
@@ -105,7 +105,7 @@ export default function CreateProductModal({
                 </label>
               </Button>
             </div>
-            <div className="mb-4 text-blue-500">{fileName}</div>
+            <div className="mb- text-blue-500">{fileName}</div>
             {!!response?.error && (
               <div className="mt-2 text-red-500">{response?.error}</div>
             )}

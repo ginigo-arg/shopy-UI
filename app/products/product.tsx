@@ -9,9 +9,9 @@ interface ProductProps {
 export default function Product({ product }: ProductProps) {
   return (
     <div className="rounded-lg border p-4 shadow-md flex flex-col gap-4 bg-white ">
-      {product.imageExist && (
+      {product.imageExists && (
         <Image
-          src={`${API_URL}/products/${product.id}.jpg`}
+          src={`${API_URL}/images/products/${product.id}.jpg`}
           alt="Picture of product"
           width={100}
           height={100}

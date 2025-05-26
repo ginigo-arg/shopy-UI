@@ -8,8 +8,8 @@ export default async function createProduct(formData: FormData) {
   const response = await post("products", formData);
   const productImage = formData.get("image");
   if (productImage instanceof File && !response.error) {
-    const productId = response.data.id;
-    await uploadProductImage(productId, productImage);
+    console.log("Uploading product image...");
+    await uploadProductImage(response.data.id, productImage);
   }
   revalidateTag("products");
   return response;
