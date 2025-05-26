@@ -1,4 +1,6 @@
+import Image from "next/image";
 import type { Product } from "./interfaces/product-interface";
+import { API_URL } from "../common/constants/api";
 
 interface ProductProps {
   product: Product;
@@ -7,6 +9,15 @@ interface ProductProps {
 export default function Product({ product }: ProductProps) {
   return (
     <div className="rounded-lg border p-4 shadow-md flex flex-col gap-4 bg-white ">
+      {product.imageExist && (
+        <Image
+          src={`${API_URL}/products/${product.id}.jpg`}
+          alt="Picture of product"
+          width={100}
+          height={100}
+          className="w-full h-auto object-cover rounded-lg"
+        ></Image>
+      )}
       <h2 className="text-lg font-semibold text-gray-800 truncate">
         {product.name.charAt(0).toUpperCase() + product.name.slice(1)}
       </h2>

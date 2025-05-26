@@ -1,6 +1,6 @@
 "use client";
-import { Dialog, DialogPanel } from "@headlessui/react";
-import { useState } from "react";
+import { Button, Dialog, DialogPanel } from "@headlessui/react";
+import { CSSProperties, useState } from "react";
 import { FormResponse } from "../../common/form-response.interface";
 import createProduct from "../actions/create-product";
 
@@ -14,12 +14,24 @@ export default function CreateProductModal({
   handleClose,
 }: CreateProductModalProps) {
   const [response, setResponse] = useState<FormResponse>();
-
+  const [fileName, setFileName] = useState("");
   const onClose = () => {
     setResponse(undefined);
     handleClose();
+    setFileName("");
   };
-
+  const fileInputStyles: CSSProperties = {
+    clip: "rect(0 0 0 0)",
+    clipPath: "inset(50%)",
+    height: 1,
+    overflow: "hidden",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    whiteSpace: "nowrap",
+    width: 1,
+  };
+  console.log("fileName:: ", fileName);
   return (
     <Dialog open={open} onClose={onClose} className="relative z-50">
       <div className="fixed inset-0 flex w-screen items-center justify-center">
@@ -77,6 +89,26 @@ export default function CreateProductModal({
                 <div className="mt-2 text-red-500">{response?.error}</div>
               )}
             </div>
+            <div className="mb-2">
+              <Button className="text-center w-full rounded-md bg-gray-700 px-3 text-white shadow-inner shadow-white/10 focus:not-data-focus:outline-none data-focus:outline data-focus:outline-white data-hover:bg-gray-600 data-open:bg-gray-700 py-2 cursor-pointer hover:cursor-pointer">
+                <label>
+                  Upload Image
+                  <input
+                    name="image"
+                    type="file"
+                    style={fileInputStyles}
+                    // tabIndex={-1}
+                    onChange={(e) =>
+                      e.target.files && setFileName(e.target.files[0].name)
+                    }
+                  />
+                </label>
+              </Button>
+            </div>
+            <div className="mb-4 text-blue-500">{fileName}</div>
+            {!!response?.error && (
+              <div className="mt-2 text-red-500">{response?.error}</div>
+            )}
 
             <button
               className="rounded bg-neutral-800 px-4 py-2 text-neutral-200 hover:bg-neutral-700 w-full"
