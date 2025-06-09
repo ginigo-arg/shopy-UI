@@ -19,7 +19,7 @@ export const post = async (path: string, formData: FormData) => {
   return { error: "", data: parsedRes };
 };
 
-export const get = async <T>(path: string, tags: string[]) => {
+export const get = async <T>(path: string, tags?: string[]) => {
   const res = await fetch(`${API_URL}/${path}`, {
     headers: { ...getHeaders() },
     next: { tags },
