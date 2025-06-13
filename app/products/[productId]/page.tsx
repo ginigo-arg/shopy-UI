@@ -2,6 +2,7 @@ import Image from "next/image";
 import getProduct from "./get-product";
 import { API_URL } from "@/app/common/constants/api";
 import { useState } from "react";
+import Checkout from "@/app/checkout/checkout";
 
 interface SingleProductProps {
   params: {
@@ -156,6 +157,7 @@ export default async function SingleProductPage({
           <div style={{ color: "#9ca3af", fontSize: "0.95rem" }}>
             Product ID: {product.id}
           </div>
+          <Checkout productId={+product.id} />
         </div>
       </div>
     </div>
