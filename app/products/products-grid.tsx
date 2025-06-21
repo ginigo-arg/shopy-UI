@@ -12,7 +12,6 @@ interface ProductGridProps {
 }
 
 export default function ProductsGrid({ products }: ProductGridProps) {
-  console.log("API_URL: ", API_URL);
   useEffect(() => {
     let socket: Socket;
 
