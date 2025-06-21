@@ -1,4 +1,3 @@
-"use client";
 import { useContext } from "react";
 import { NavLinks } from "./NavLinks";
 import { routes, unauthenticatedRoutes } from "../common/constants/routes";
@@ -7,7 +6,6 @@ import logout from "../auth/logout";
 
 export const Nav = () => {
   const isAuthenticated = useContext(AuthContext);
-  console.log("isAuthenticated:", isAuthenticated);
   const pages = isAuthenticated ? routes : unauthenticatedRoutes;
   return (
     <nav className="flex w-full gap-4 lg:gap-6" aria-label="Main navigation">
