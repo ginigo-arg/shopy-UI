@@ -3,6 +3,7 @@ import getProduct from "./get-product";
 import { API_URL } from "@/app/common/constants/api";
 import { useState } from "react";
 import Checkout from "@/app/checkout/checkout";
+import { getProductImage } from "../getProductImage";
 
 interface SingleProductProps {
   params: {
@@ -45,7 +46,7 @@ export default async function SingleProductPage({
       >
         <div style={{ flex: 1, minWidth: 0 }}>
           <Image
-            src={`${API_URL}/images/products/${product.id}.jpg`}
+            src={getProductImage(+product.id)}
             alt={product.name}
             style={{
               width: "100%",

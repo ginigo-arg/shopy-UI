@@ -3,12 +3,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "localhost",
-        port: "3001",
-      },
-      {
-        hostname: "elasticbeanstalk",
-        protocol: "http",
+        hostname: process.env.PRODUCT_IMAGE_HOST,
       },
     ],
   },

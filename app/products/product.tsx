@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Product } from "./interfaces/product-interface";
 import { API_URL } from "../common/constants/api";
 import Link from "next/link";
+import { getProductImage } from "./getProductImage";
 
 interface ProductProps {
   product: Product;
@@ -19,7 +20,7 @@ export default function Product({ product }: ProductProps) {
       <div className="rounded-lg border p-4 shadow-md flex flex-col gap-4 bg-white ">
         {product.imageExists && (
           <Image
-            src={`${API_URL}/images/products/${product.id}.jpg`}
+            src={getProductImage(+product.id)}
             alt="Picture of product"
             width={100}
             height={100}
