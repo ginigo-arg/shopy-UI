@@ -12,27 +12,27 @@ interface ProductGridProps {
 }
 
 export default function ProductsGrid({ products }: ProductGridProps) {
-  useEffect(() => {
-    let socket: Socket;
+  // useEffect(() => {
+  //   let socket: Socket;
 
-    const createSocket = async () => {
-      socket = io(API_URL!, {
-        auth: {
-          Authentication: getAuthentication(),
-        },
-      });
+  //   const createSocket = async () => {
+  //     socket = io(API_URL!, {
+  //       auth: {
+  //         Authentication: getAuthentication(),
+  //       },
+  //     });
 
-      socket.on("productUpdated", () => {
-        revalidateProducts();
-      });
-    };
+  //     socket.on("productUpdated", () => {
+  //       revalidateProducts();
+  //     });
+  //   };
 
-    createSocket();
+  //   createSocket();
 
-    return () => {
-      socket?.disconnect();
-    };
-  }, []);
+  //   return () => {
+  //     socket?.disconnect();
+  //   };
+  // }, []);
 
   return (
     <div className="flex flex-col py-4 gap-4">
