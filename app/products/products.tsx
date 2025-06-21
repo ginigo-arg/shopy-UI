@@ -5,6 +5,6 @@ export default async function Products() {
     const products = await getProducts();
     return <ProductsGrid products={products} />;
   } catch (error) {
-    return <div>Error: {String(error)}</div>;
+    return <div>Error: {JSON.stringify(error)}</div>;
   }
 }
